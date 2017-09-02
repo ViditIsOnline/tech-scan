@@ -1,0 +1,18 @@
+<div class="container mat-elevation-z2">
+  <h2>Languages</h2>
+  <md-progress-spinner *ngIf="!dataSource" color="primary" mode="indeterminate"></md-progress-spinner>
+  <md-table *ngIf="dataSource" #table [dataSource]="dataSource">
+    <ng-container mdColumnDef="lang">
+      <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.lang}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="repos">
+      <md-header-cell *mdHeaderCellDef> Repos Count </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.repos}} </md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>

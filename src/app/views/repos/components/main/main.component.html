@@ -1,0 +1,31 @@
+<main>
+  <section>
+    <h1>{{language}}</h1>
+    <md-progress-spinner *ngIf="!repos" color="primary" mode="indeterminate"></md-progress-spinner>
+    <div *ngIf="repos">
+      <md-paginator [length]="reposCount" [pageSize]="9" (page)="pageChanged($event)"></md-paginator>
+      <div role="list">
+        <md-form-field>
+          <input mdInput placeholder="Search"  (keyup)="searchTerm$.next($event.target.value)">
+        </md-form-field>
+        <a *ngFor="let repo of repos" role="listitem" [routerLink]="['/user', repo.owner.login]">
+          <md-card>
+            <h2>{{repo.full_name}}</h2>
+            <div class="star-container">
+              <md-icon color="primary">star</md-icon><span>{{repo.stargazers_count}}</span>
+            </div>
+            <div class="watch-container">
+              <md-icon color="primary">remove_red_eye</md-icon><span>{{repo.watchers_count}}</span>
+            </div>
+            <p>{{repo.description}}</p>
+            <p><a [href]="repo.html_url" target="_blank">{{repo.html_url}}</a></p>
+            <p><strong>Last Update: </strong>{{repo.updated_at | date}}</p>
+          </md-card>
+        </a>
+      </div>
+    </div>
+  </section>
+  <aside>
+    <app-language-bar></app-language-bar>
+  </aside>
+</main>

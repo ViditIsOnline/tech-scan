@@ -1,0 +1,63 @@
+h1 {
+  text-transform: capitalize;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  >* {
+    flex: 1 1 100%;
+  }
+  a {
+    display: block;
+    margin-bottom: 1.4rem;
+    
+    md-card {
+      display: flex;
+      flex-wrap: wrap;
+      >* {
+        margin-bottom: 1.4rem;
+      }
+      h2 {
+        flex: 1 1 100%;
+        color: #2196F3;
+      }
+      .star-container,
+      .watch-container {
+        flex: 0 0 50%;
+        * {
+          vertical-align: middle;
+        }
+        span {
+          margin-left: 1.4rem;
+        }
+      }
+      >p {
+        flex: 1 1 100%;
+      }
+      &:hover {
+        background-color: #F5F5F5;
+      }
+      @media (min-width:768px) and (max-width:939px) {
+        .star-container,
+        .watch-container {
+          flex: 1 1 25%;
+        }
+      }
+      @media (min-width:940px) {
+        h2 {
+          flex: 1 1 70%;
+        }
+        .star-container,
+        .watch-container {
+          flex: 1 1 15%;
+        }
+      }
+    }
+  }
+}
+
+md-form-field {
+  width: 30%;
+}

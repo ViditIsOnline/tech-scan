@@ -1,0 +1,15 @@
+<main>
+  <section>
+    <div role="list">
+      <a *ngFor="let data of dataSource" [routerLink]="['/repos', data.name]" role="listitem">
+        <md-card>
+          <img [src]="'./assets/' + data.name + '.png'" alt="">
+          <p>{{data.lang}}</p>
+        </md-card>
+      </a>
+    </div>
+  </section>
+  <aside>
+    <app-language-bar></app-language-bar>
+  </aside>
+</main>

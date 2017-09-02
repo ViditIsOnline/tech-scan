@@ -1,0 +1,74 @@
+<main>
+  <section class="overview">
+    <div class="container mat-elevation-z2">
+      <md-progress-spinner *ngIf="!userDetails" color="primary" mode="indeterminate"></md-progress-spinner>
+      <div *ngIf="userDetails">
+        <img md-card-image *ngIf="userDetails?.avatar_url" [src]="userDetails.avatar_url">
+        <h2>{{userDetails?.name}}</h2>
+        <h3>{{userDetails?.login}}</h3>
+        <p *ngIf="userDetails?.bio">{{userDetails.bio}}</p>
+        <p *ngIf="userDetails?.company">{{userDetails.company}}</p>
+        <p *ngIf="userDetails?.blog">{{userDetails.blog}}</p>
+        <p><strong>Public Repos: </strong>{{userDetails?.public_repos}}</p>
+        <p><strong>Followers: </strong>{{userDetails?.followers}}</p>
+        <p><strong>Following: </strong>{{userDetails?.following}}</p>
+      </div>
+    </div>
+  </section>
+  <section class="details">
+    <md-tab-group>
+      <md-tab label="Repositories">
+        <md-progress-spinner *ngIf="!repos" color="primary" mode="indeterminate"></md-progress-spinner>
+        <div *ngIf="repos" class="list-container" role="list">
+          <md-card *ngFor="let repo of repos" role="listitem">
+            <h2>{{repo.full_name}}</h2>
+            <div class="star-container">
+              <md-icon color="primary">star</md-icon><span>{{repo.stargazers_count}}</span>
+            </div>
+            <div class="watch-container">
+              <md-icon color="primary">remove_red_eye</md-icon><span>{{repo.watchers_count}}</span>
+            </div>
+            <p>{{repo.description}}</p>
+            <p><a [href]="repo.html_url" target="_blank">{{repo.html_url}}</a></p>
+            <p><strong>Last Update: </strong>{{repo.updated_at | date}}</p>
+          </md-card>
+        </div>
+      </md-tab>
+      <md-tab label="Starred">
+        <md-progress-spinner *ngIf="!starredRepos" color="primary" mode="indeterminate"></md-progress-spinner>
+        <div *ngIf="starredRepos" class="list-container" role="list">
+          <md-card *ngFor="let repo of starredRepos" role="listitem">
+            <h2>{{repo.full_name}}</h2>
+            <div class="star-container">
+              <md-icon color="primary">star</md-icon><span>{{repo.stargazers_count}}</span>
+            </div>
+            <div class="watch-container">
+              <md-icon color="primary">remove_red_eye</md-icon><span>{{repo.watchers_count}}</span>
+            </div>
+            <p>{{repo.description}}</p>
+            <p><a [href]="repo.html_url" target="_blank">{{repo.html_url}}</a></p>
+            <p><strong>Last Update: </strong>{{repo.updated_at | date}}</p>
+          </md-card>
+        </div>
+      </md-tab>
+      <md-tab label="Followers">
+        <md-progress-spinner *ngIf="!followers" color="primary" mode="indeterminate"></md-progress-spinner>
+        <div *ngIf="followers" class="list-container" role="list">
+          <md-card *ngFor="let user of followers" role="listitem">
+            <h2>{{user.login}}</h2>
+            <p><a [href]="user.html_url" target="_blank">{{user.html_url}}</a></p>
+          </md-card>
+        </div>
+      </md-tab>
+      <md-tab label="Following">
+        <md-progress-spinner *ngIf="!following" color="primary" mode="indeterminate"></md-progress-spinner>
+        <div *ngIf="following" class="list-container" role="list">
+          <md-card *ngFor="let user of following" role="listitem">
+            <h2>{{user.login}}</h2>
+            <p><a [href]="user.html_url" target="_blank">{{user.html_url}}</a></p>
+          </md-card>
+        </div>
+      </md-tab>
+    </md-tab-group>
+  </section>
+</main>
