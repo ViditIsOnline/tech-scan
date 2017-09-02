@@ -17,9 +17,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Sample Images
 
-![](https://ibb.co/jPGR1v)
-![](https://ibb.co/cz3TEF)
-![](https://ibb.co/fDjqTa)
-![](https://ibb.co/m1ZPoa)
-![](https://ibb.co/jk0x8a)
-![](https://ibb.co/bSVx8a)
+![](https://i.imgur.com/ag7Fm40.png)
+![](https://i.imgur.com/7R9ix7F.png)
+![](https://i.imgur.com/K1iIbcy.png)
+![](https://i.imgur.com/eQvbyQ8.png)
+![](https://i.imgur.com/VWK34GB.png)
+![](https://i.imgur.com/k7zvlLf.png)
